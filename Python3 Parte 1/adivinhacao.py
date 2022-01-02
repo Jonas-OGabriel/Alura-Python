@@ -4,20 +4,18 @@ print("*********************************")
 
 numero_secreto = 42
 
-#O código abaixo salvará o input do usuário como string
-#chute = input("Digite o seu numero: ")
+tentativa = int(input("Digite um número e tente acertar o número secreto: "))
 
-#O código int() converte o valor de input para tipo int
-chute = int(input("Digite o seu numero: "))
+condicao_acerto = tentativa == numero_secreto
+condicao_erro_maior = tentativa > numero_secreto
+condicao_erro_menor = tentativa < numero_secreto
 
-print("Você digitou", chute)
-
-if(numero_secreto == chute):
-    print("Você acertou!")
+if(condicao_acerto):
+    print("Parabens! Você acertou!")
 else:
-    print("Você errou")
+    if(condicao_erro_maior):
+        print("Que pena, você errou... Sua tentiva foi maior do que número secreto")
+    elif(condicao_erro_menor):
+        print("Que pena, você errou... Sua tentiva foi menor do que número secreto")
 
 print("Fim do jogo!")
-
-#O código acima sempre dará "Você errou" pois os tipos das variaveis são diferentes
-#print(type(numero_secreto), type(chute))
