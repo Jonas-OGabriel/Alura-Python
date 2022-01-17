@@ -8,7 +8,17 @@ def jogar():
     acertou = False
 
     while(not enforcou and not acertou):
-        print("jogando...")
+        
+        chute = input("Qual letra?: ")
+        chute = chute.strip()
+
+        for letra in palavra_secreta:
+            if(chute.lower() == letra):
+                print(chute, end="")
+            else:
+                print("_", end="")
+
+        print("\njogando...")
 
 
     print("Fim do Jogo")
