@@ -16,11 +16,17 @@ class TV_program:
     def give_like(self):
         self._likes_quantity += 1
 
+    def __str__(self):
+        return "Name: {} --- Year: {} --- Likes: {}".format(self.program_name, self.program_year, self.likes_quantity)
+
 class Movie(TV_program):
 
     def __init__(self, movie_name, movie_year, movie_duration):
         super().__init__(movie_name, movie_year)
         self.movie_duration = movie_duration
+
+    def __str__(self):
+        return "Name: {} --- Year: {} --- Duration: {} --- Likes: {}".format(self.program_name, self.program_year, self.movie_duration, self.likes_quantity)
 
 class Series(TV_program):
 
@@ -28,6 +34,8 @@ class Series(TV_program):
         super().__init__(series_name, series_year)
         self.series_duration = series_season
 
+    def __str__(self):
+        return "Name: {} --- Year: {} --- Seasons: {} --- Likes: {}".format(self.program_name, self.program_year, self.series_duration, self.likes_quantity)
 
 def test():
 
@@ -41,8 +49,10 @@ def test():
     series1.give_like()
     series1.give_like()
 
-    print("Name: {} --- Year: {} --- Duration: {} --- Likes: {}".format(movie1.program_name, movie1.program_year, movie1.movie_duration, movie1.likes_quantity))
-    print("Name: {} --- Year: {} --- Seasons: {} --- Likes: {}".format(series1.program_name, series1.program_year, series1.series_duration, series1.likes_quantity))
+    list_programs = [movie1, series1]
+
+    for programs in list_programs:
+        print(programs)
 
 if( __name__ == "__main__"):
     test()
