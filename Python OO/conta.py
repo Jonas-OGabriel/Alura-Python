@@ -31,11 +31,13 @@ class Conta:
     def get_saldo(self):
         return self.get_saldo
     
-    def get_limite(self):
-        return self.get_limite
+    @property
+    def limite(self):
+        return self.__limite
 
     def get_titular(self):
         return self.get_titular
 
-    def set_limite(self, novo_limite):
+    @limite.setter
+    def limite(self, novo_limite):
         self.__limite = novo_limite
