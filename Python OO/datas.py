@@ -7,4 +7,9 @@ class Data:
         self.ano = ano
     
     def formatada(self):
-        print("{}/{}/{}".format(self.dia, self.mes, self.ano))
+        print("{:02}/{:02}/{:04}".format(self.dia, self.mes, self.ano))
+
+d = Data(21, 11, 2007)
+d.formatada()
+
+
