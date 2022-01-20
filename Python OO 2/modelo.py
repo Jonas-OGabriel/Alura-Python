@@ -1,40 +1,33 @@
-class Movie:
+class TV_program:
+
+    def __init__(self, program_name, program_year):
+        self._program_name = program_name.title()
+        self.program_year = program_year
+        self._likes_quantity = 0
+
+    @property
+    def program_name(self):
+        return self._program_name
+    
+    @property
+    def likes_quantity(self):
+        return self._likes_quantity
+    
+    def give_like(self):
+        self._likes_quantity += 1
+
+class Movie(TV_program):
 
     def __init__(self, movie_name, movie_year, movie_duration):
-        self.__movie_name = movie_name.title()
-        self.movie_year = movie_year
+        super().__init__(movie_name, movie_year)
         self.movie_duration = movie_duration
-        self.__likes_quantity = 0
-    
-    @property
-    def movie_name(self):
-        return self.__movie_name
-    
-    @property
-    def likes_quantity(self):
-        return self.__likes_quantity
-    
-    def give_like(self):
-        self.__likes_quantity += 1
 
-class Series:
+class Series(TV_program):
 
     def __init__(self, series_name, series_year, series_season):
-        self.__series_name = series_name.title()
-        self.series_year = series_year
+        super().__init__(series_name, series_year)
         self.series_duration = series_season
-        self.__likes_quantity = 0
-    
-    @property
-    def series_name(self):
-        return self.__series_name
-    
-    @property
-    def likes_quantity(self):
-        return self.__likes_quantity
-    
-    def give_like(self):
-        self.__likes_quantity += 1
+
 
 def test():
 
@@ -48,8 +41,8 @@ def test():
     series1.give_like()
     series1.give_like()
 
-    print("Name: {} --- Year: {} --- Duration: {} --- Likes: {}".format(movie1.movie_name, movie1.movie_year, movie1.movie_duration, movie1.likes_quantity))
-    print("Name: {} --- Year: {} --- Seasons: {} --- Likes: {}".format(series1.series_name, series1.series_year, series1.series_duration, series1.likes_quantity))
+    print("Name: {} --- Year: {} --- Duration: {} --- Likes: {}".format(movie1.program_name, movie1.program_year, movie1.movie_duration, movie1.likes_quantity))
+    print("Name: {} --- Year: {} --- Seasons: {} --- Likes: {}".format(series1.program_name, series1.program_year, series1.series_duration, series1.likes_quantity))
 
 if( __name__ == "__main__"):
     test()
