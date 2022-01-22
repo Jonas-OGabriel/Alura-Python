@@ -1,6 +1,3 @@
-from validators import length
-
-
 class TV_program:
 
     def __init__(self, program_name, program_year):
@@ -53,7 +50,12 @@ class Playlist:
     @property
     def playlist_name(self):
         return self._playlist_name
-     
+    
+    def __getitem__(self, item):
+        return self._program_list[item]
+    
+    def __len__(self):
+        return len(self._program_list)
 
 def test():
 
@@ -84,9 +86,9 @@ def test():
 
     weekend_playlist = Playlist("test", list_of_all_programs)
 
-    print("Tamanho da lista é: {}".format(len(weekend_playlist.program_list)))
+    print("Tamanho da lista é: {}".format(len(weekend_playlist)))
 
-    for programs in weekend_playlist.program_list:
+    for programs in weekend_playlist:
         print(programs)
 
 if( __name__ == "__main__"):
