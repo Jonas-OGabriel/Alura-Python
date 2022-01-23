@@ -33,3 +33,19 @@ print(parameter_index) #Ela retornará o indice do INICIO da palavra encontrada 
 index_parameter_value = parameter_index + len(search_parameter) + 1
 paremeter_value = url_parametros[index_parameter_value:]
 print(paremeter_value)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+search_parameter = 'moedaOrigem'
+parameter_index = url_parametros.find(search_parameter)
+print(parameter_index) 
+
+
+index_parameter_value = parameter_index + len(search_parameter) + 1
+attribute_separator_index = url_parametros.find('&', index_parameter_value)
+if attribute_separator_index == -1:
+    paremeter_value = url_parametros[index_parameter_value:]
+else:
+    paremeter_value = url_parametros[index_parameter_value:attribute_separator_index]
+
+print(paremeter_value)
